@@ -15,3 +15,14 @@ def rob(nums):
 
 
 print(rob([1, 2, 3, 1]))
+
+
+
+def rob(nums):
+    # [rob1, rob2, n, n + 1, n + 2]
+    rob1, rob2 = 0, 0
+    for n in nums:
+        newRob = max(n + rob1, rob2)
+        rob1 = rob2
+        rob2 = newRob
+    return rob2
